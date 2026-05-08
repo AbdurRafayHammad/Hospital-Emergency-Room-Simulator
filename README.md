@@ -1,123 +1,173 @@
 # Hospital-Emergency-Room-Simulator
-A complete Operating Systems semester project developed in C that simulates a hospital emergency room while integrating core OS concepts such as process management, IPC, CPU scheduling, synchronization, threading, and memory management.
+A complete Hospital Emergency Room Simulation System developed in C language that combines major Operating System concepts into one realistic system-level application.
 
-Features
-Process creation using fork() and execv()
-CPU scheduling algorithms
-Inter-Process Communication (IPC)
-Anonymous Pipes
-Named FIFO Communication
-Shared Memory
-POSIX Threads
-Mutexes and Condition Variables
-Counting Semaphores
-Best-Fit / First-Fit / Worst-Fit allocation
-External Fragmentation handling
-Memory coalescing
-Linux shell scripting
-Logging system
-Makefile-based build system
-Operating System Concepts Used
-OS Concept	Implementation
-Process Management	Parent-child processes using fork()
-CPU Scheduling	FCFS and Priority Scheduling
-IPC	Pipes, FIFOs, Shared Memory
-Threads	Nurse and Receptionist thread pool
+This project simulates how a real hospital emergency department manages patients, scheduling, memory allocation, synchronization, and concurrent operations using low-level OS mechanisms.
+
+** Project Highlights
+**
+✅ Multi-Process Architecture
+✅ Real-Time Patient Scheduling
+✅ Inter-Process Communication (IPC)
+✅ Shared Memory System
+✅ Thread Synchronization
+✅ Memory Allocation & Fragmentation Simulation
+✅ Linux Shell Scripting
+✅ Logging & Monitoring System
+
+** OS Concepts Implemented
+**
+Operating System Concept	Implementation
+Process Management	fork() & execv()
+CPU Scheduling	FCFS & Priority Scheduling
+IPC	Pipes, FIFO, Shared Memory
+Threads	Receptionist & Nurse Thread Pool
 Synchronization	Mutexes, Semaphores, Condition Variables
-Memory Management	Dynamic ward allocation
-Fragmentation	External fragmentation simulation
-Linux Environment	Shell scripts and Makefile
-System Architecture
+Memory Management	First-Fit, Best-Fit, Worst-Fit
+Fragmentation	External Fragmentation Tracking
+Linux Environment	Makefile & Bash Scripts
 
-The system contains multiple independent modules working together:
+** System Architecture
+**
+The simulator is divided into multiple modules that work together like a mini operating system.
 
-Admissions Controller
-Scheduler Worker
-Patient Simulator
-Nurse Thread Pool
-Shared Memory Board
+🔹 Admissions Controller
 
-The admissions controller acts as the central process and coordinates scheduling, patient handling, and memory allocation.
+Acts as the main parent process responsible for:
 
-Scheduling Algorithms
+Patient management
+Scheduling coordination
+Resource handling
+Shared memory maintenance
+🔹 Scheduler Worker
 
-The simulator supports:
+Runs as a child process and schedules patients based on severity level.
 
-FCFS Scheduling
+🔹 Patient Simulator
+
+Generates patient records dynamically and sends them into the system.
+
+🔹 Nurse Thread Pool
+
+Multiple concurrent nurse threads treat patients simultaneously.
+
+🔹 Shared Memory Board
+
+Stores:
+
+Patient statistics
+Bed allocation data
+Scheduling information
+Process IDs
+
+** Scheduling Algorithms
+**
+The system supports two scheduling strategies:
+
+🟢 FCFS Scheduling
 
 Patients are treated in arrival order.
 
-Priority Scheduling
+🔴 Priority Scheduling
 
-Critical patients are treated first based on severity level.
+Critical patients receive treatment first.
 
-Severity levels range from:
-
-Severity	Priority
+Severity Level	Priority
 1	Critical
 5	Stable
-IPC Mechanisms
-Anonymous Pipes
 
-Used for communication between parent and scheduler processes.
+This mimics real hospital emergency room behavior.
 
-Named FIFO
+** Inter-Process Communication (IPC)
+**
+The project demonstrates multiple IPC mechanisms.
 
-Used for communication between unrelated processes.
+📌 Anonymous Pipes
 
-Shared Memory
+Used for communication between parent and child processes.
 
-Stores hospital-wide statistics and bed allocation information.
+📌 Named FIFO
 
-Threading and Synchronization
+Allows unrelated processes to exchange patient records dynamically.
 
-The project uses multiple threads to simulate real hospital activity.
+📌 Shared Memory
 
-Thread Roles
+Provides fast shared access to hospital-wide data structures.
+
+** Multithreading & Synchronization
+**
+The simulator uses concurrent threads to simulate real-time hospital activity.
+
+👨‍⚕️ Thread Roles
 Receptionist Thread
 Scheduler Thread
 Nurse Threads
-Synchronization Tools
+🔐 Synchronization Mechanisms
 Mutex Locks
-Condition Variables
 Counting Semaphores
+Condition Variables
 
-These mechanisms prevent race conditions and ensure safe concurrent execution.
+These mechanisms ensure:
 
-Memory Management
+Safe concurrent execution
+No race conditions
+Proper resource coordination
 
-The hospital ward is modeled as a contiguous memory space.
+** Memory Management System
+**
+The hospital ward is modeled as a contiguous memory region.
 
 Supported allocation strategies:
 
-First-Fit
-Best-Fit
-Worst-Fit
+✅ First-Fit
+✅ Best-Fit
+✅ Worst-Fit
 
-The simulator also demonstrates:
+The system also demonstrates:
 
 External Fragmentation
 Memory Coalescing
 Paging Simulation
-Logging System
 
-The system automatically generates logs for:
+This provides practical understanding of real OS memory allocation techniques.
 
-Scheduling events
+** Logging & Monitoring
+**
+The simulator automatically maintains detailed logs for:
+
+Scheduling activity
+Process creation
+Thread execution
 Memory allocation
-Process activity
 Fragmentation statistics
-Thread operations
-Build Instructions
-Compile Project
+Coalescing operations
+
+** Linux & Shell Scripting
+**
+The project integrates Linux utilities using:
+
+Bash Scripts
+Makefile Automation
+GCC Compilation
+Linux System Calls
+
+Scripts are included for:
+
+Running the system
+Validating patient input
+Managing processes
+Automating execution
+ Build Instructions
+ Compile Project
 make clean && make all
-Run Modes
-Demo Mode
+ Run Modes
+ Demo Mode
 ./hospital_system --demo
 
-Demonstrates FCFS vs Priority Scheduling.
+Demonstrates:
 
-Pipe Demo
+FCFS Scheduling
+Priority Scheduling
+🔗 Pipe Demo
 ./hospital_system --pipe-demo 5
 
 Demonstrates:
@@ -127,51 +177,50 @@ execv()
 Anonymous Pipes
 Shared Memory
 SIGCHLD
-FIFO Demo
-
-Terminal 1:
-
+📡 FIFO Demo
+Terminal 1
 ./hospital_system --fifo 4
-
-Terminal 2:
-
+Terminal 2
 ./patient_simulator 4
 
 Demonstrates Named FIFO IPC.
 
-Thread Demo
-./hospital_system --thread-demo 10 3
+**Thread Demo
+**./hospital_system --thread-demo 10 3
 
 Demonstrates:
 
 Multithreading
-Mutexes
-Condition Variables
+Mutex Synchronization
 Semaphores
-Memory Demo
-./hospital_system --memory-demo all 12
+Condition Variables
+** Memory Demo
+**./hospital_system --memory-demo all 12
 
 Demonstrates:
 
-Memory allocation strategies
+Allocation Strategies
 Fragmentation
+Paging
 Coalescing
-Paging simulation
-Technologies Used
-C Programming
-GCC Compiler
-POSIX Threads
-Linux System Calls
-Bash Scripting
-Makefile
-Learning Outcomes
+**Technologies Used
+**
+Technology	Purpose
+C Programming	Core Development
+GCC	Compilation
+POSIX Threads	Multithreading
+Linux System Calls	OS Features
+Bash Scripts	Automation
+Makefile	Build Management
+** Learning Outcomes
+**
+Process Lifecycle Management
+CPU Scheduling Algorithms
+IPC Mechanisms
+Concurrent Programming
+Synchronization Techniques
+Memory Allocation
+Fragmentation Handling
+Linux System Programming
 
-This project provided practical understanding of:
-
-Process lifecycle management
-CPU scheduling
-IPC mechanisms
-Thread synchronization
-Dynamic memory allocation
-Fragmentation handling
-Linux system programming
+This project transformed operating system theory into a complete real-world implementation.
