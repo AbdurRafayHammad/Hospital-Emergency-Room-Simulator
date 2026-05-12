@@ -3,8 +3,8 @@ A complete Hospital Emergency Room Simulation System developed in C language tha
 
 This project simulates how a real hospital emergency department manages patients, scheduling, memory allocation, synchronization, and concurrent operations using low-level OS mechanisms.
 
-** Project Highlights
-**
+**Project Highlights**
+
 ✅ Multi-Process Architecture
 ✅ Real-Time Patient Scheduling
 ✅ Inter-Process Communication (IPC)
@@ -14,8 +14,8 @@ This project simulates how a real hospital emergency department manages patients
 ✅ Linux Shell Scripting
 ✅ Logging & Monitoring System
 
-** OS Concepts Implemented
-**
+**OS Concepts Implemented**
+
 Operating System Concept	Implementation
 Process Management	fork() & execv()
 CPU Scheduling	FCFS & Priority Scheduling
@@ -26,8 +26,8 @@ Memory Management	First-Fit, Best-Fit, Worst-Fit
 Fragmentation	External Fragmentation Tracking
 Linux Environment	Makefile & Bash Scripts
 
-** System Architecture
-**
+**System Architecture**
+
 The simulator is divided into multiple modules that work together like a mini operating system.
 
 🔹 Admissions Controller
@@ -59,8 +59,8 @@ Bed allocation data
 Scheduling information
 Process IDs
 
-** Scheduling Algorithms
-**
+**Scheduling Algorithms**
+
 The system supports two scheduling strategies:
 
 🟢 FCFS Scheduling
@@ -77,8 +77,8 @@ Severity Level	Priority
 
 This mimics real hospital emergency room behavior.
 
-** Inter-Process Communication (IPC)
-**
+**Inter-Process Communication (IPC)**
+
 The project demonstrates multiple IPC mechanisms.
 
 📌 Anonymous Pipes
@@ -93,8 +93,8 @@ Allows unrelated processes to exchange patient records dynamically.
 
 Provides fast shared access to hospital-wide data structures.
 
-** Multithreading & Synchronization
-**
+**Multithreading & Synchronization**
+
 The simulator uses concurrent threads to simulate real-time hospital activity.
 
 👨‍⚕️ Thread Roles
@@ -112,8 +112,8 @@ Safe concurrent execution
 No race conditions
 Proper resource coordination
 
-** Memory Management System
-**
+**Memory Management System**
+
 The hospital ward is modeled as a contiguous memory region.
 
 Supported allocation strategies:
@@ -130,8 +130,8 @@ Paging Simulation
 
 This provides practical understanding of real OS memory allocation techniques.
 
-** Logging & Monitoring
-**
+**Logging & Monitoring**
+
 The simulator automatically maintains detailed logs for:
 
 Scheduling activity
@@ -141,8 +141,8 @@ Memory allocation
 Fragmentation statistics
 Coalescing operations
 
-** Linux & Shell Scripting
-**
+**Linux & Shell Scripting**
+
 The project integrates Linux utilities using:
 
 Bash Scripts
@@ -185,8 +185,8 @@ Terminal 2
 
 Demonstrates Named FIFO IPC.
 
-**Thread Demo
-**./hospital_system --thread-demo 10 3
+**Thread Demo**
+./hospital_system --thread-demo 10 3
 
 Demonstrates:
 
@@ -194,8 +194,8 @@ Multithreading
 Mutex Synchronization
 Semaphores
 Condition Variables
-** Memory Demo
-**./hospital_system --memory-demo all 12
+**Memory Demo**
+./hospital_system --memory-demo all 12
 
 Demonstrates:
 
@@ -203,8 +203,8 @@ Allocation Strategies
 Fragmentation
 Paging
 Coalescing
-**Technologies Used
-**
+**Technologies Used**
+
 Technology	Purpose
 C Programming	Core Development
 GCC	Compilation
@@ -212,8 +212,8 @@ POSIX Threads	Multithreading
 Linux System Calls	OS Features
 Bash Scripts	Automation
 Makefile	Build Management
-** Learning Outcomes
-**
+**Learning Outcomes**
+
 Process Lifecycle Management
 CPU Scheduling Algorithms
 IPC Mechanisms
